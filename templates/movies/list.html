@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+<div class="page-header">
+  <h1>Movies</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+    {% for movie in movies %}
+      <a href="{{ url_for('movies.detail', filename=movie.filename) }}">
+        <h2>{{ movie.title }} ({{ movie.year }})</h2>
+        <img src="{{ movie.poster }}" alt="{{ movie.title }}" width="120" height="190" />
+      </a>
+      <p>{{ movie.plot|truncate }}</p>
+    {% endfor %}
+{% endblock %}

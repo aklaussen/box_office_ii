@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+  <div class="page-header">
+    <h1>{{ movie.title }}</h1>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <video width="640" height="480" preload controls>
+    <source src="http://cupcake.local:4040/{{movie.filename}}.mp4" type="video/mp4">
+    Your browser does not support the video tag. Try Google Chrome instead.
+  </video>
+  <hr>
+  <small>{{ movie.year }} 
+         | Runtime: {{ movie.runtime }}
+         | Rating: {{ movie.rating }}/10</small>
+  <hr>
+  <h3>About</h3>
+  <p>{{ movie.plot }}</p>
+  <p>Actors: {{ movie.actors }}</p>
+  <p>Genres: {{ movie.genres }}</p>
+{% endblock %}
